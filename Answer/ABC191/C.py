@@ -19,12 +19,10 @@ m = 0 # 多角形が始まっていれば1になる
 for i in range(h+1):
 
     # 最後まで回っている場合、天辺をたすかどうかの判断だけして終了
-    if i == h :
-        if old_end - old_start > 1: # つまり2以上の場合
+    if i == h:
+        if old_end - old_start > 0: # つまり2以上の場合
             angle += 1 # 天辺が一角形 保証される
-            break
-
-
+        break
     s = input()
     # 端と端を拾う
     start = s.find('#')
@@ -35,7 +33,7 @@ for i in range(h+1):
 
 
     if m == 0:
-        if end - start > 1: # つまり2以上の場合
+        if end - start > 0: # つまり2以上の場合
             angle += 1 # 天辺が一角形 保証される
     if m == 1:
         # 方向だけ取得、必ず2加算
@@ -50,12 +48,12 @@ for i in range(h+1):
             v_e = 1
         #print('M=1:' + str(old_end) + '|' + str(end))
 
-    if i > 1:
+    if m > 1:
         # 多角形の最後まで辿りついた場合
         #print(str(start) + '|' + str(end))
         if start == -1 and end == -1:
             # print("test:" + str(old_end) + '|' + str(old_start))
-            if old_end - old_start > 1: # つまり2以上の場合
+            if old_end - old_start > 0: # つまり2以上の場合
                 angle += 1 # 天辺が一角形 保証される
                 break
 
